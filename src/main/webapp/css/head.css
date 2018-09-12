@@ -1,0 +1,66 @@
+!important
+#main{
+	background-color: rgb(240,240,240);
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	color: red;
+}
+.clear{
+	clear:both;
+}
+.top{
+	
+}
+.marquee{
+	width: 30%;font-size: 13px;margin-left: 60px;
+}
+.top1{
+	
+}
+.top1_1{
+	float: right;font-size: 15px;margin-right: 2%;
+}
+.loginPadding{
+	padding-left: 15px;
+}
+.weather{ 
+    background: url(../img/weather.jpg) no-repeat;width:200px; 
+    height: 54px; 
+    padding: 0px 0px 2px 55px; 
+}
+#weather{
+	float: right;margin-top: 10px;margin-right: 1.7%;
+}
+#logo{
+	float: left;margin-top: 10px;margin-left: 2%;
+}
+#search{
+	float: left;margin-top: 20px;margin-left: 3%;width: 40%;
+}
+#navFirst{
+	margin-left: 3%;
+}
+#nav{
+	margin-left: 6%;
+}
+#top2{
+	color: #FFFFFF;
+	font-size: 18px;margin-top: 10px;
+	border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-left:  1px solid #cccccc;
+    border-right:  1px solid #cccccc;
+    background-color: rgb(0,65,0);
+    width: 100%;
+    height: 35px;
+    padding-top: 8px;
+}
+#top2 a{
+	color: #FFFFFF;
+}
+#top2 span a:hover{
+	background-color: #cccccc;
+}
