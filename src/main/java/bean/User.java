@@ -12,7 +12,22 @@ public class User{
 	private String headimg;
 	private String sex;
 	private String hobby;
+	private String email;
+	private String register_code;
 	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getRegister_code() {
+		return register_code;
+	}
+	public void setRegister_code(String register_code) {
+		this.register_code = register_code;
+	}
 	public Integer getUserId() {
 		return userId;
 	}

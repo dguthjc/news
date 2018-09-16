@@ -3,6 +3,7 @@ package dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import tools.PageInformation;
@@ -21,10 +22,10 @@ public class UserDao {
 	}
 	
 	public void register(User user,DatabaseDao databaseDao) throws SQLException{
-		String sql="insert into user(type,name,password,enable,headimg,sex,hobby) values('"+
+		String sql="insert into user(type,name,password,enable,headimg,sex,hobby,register_code,email) values('"+
 				user.getType()+"','"+user.getName()+"','"+
 				user.getPassword()+"','"+user.getEnable()+"','"+user.getHeadimg()+"','"+
-				user.getSex()+"','"+user.getHobby()+"')";
+				user.getSex()+"','"+user.getHobby()+"','"+user.getRegister_code()+"','"+user.getEmail()+"')";
 		databaseDao.update(sql);
 	}
 	
@@ -43,6 +44,7 @@ public class UserDao {
 			user.setRegisterDate(databaseDao.getTimestamp("registerDate"));
 			user.setType(databaseDao.getString("type"));
 			user.setUserId(databaseDao.getInt("userId"));
+			user.setEmail(databaseDao.getString("email"));
 			if( ("use").equals(enable)  ){
 				user.setType(databaseDao.getString("type"));
 				return 1;//可以登录
@@ -186,6 +188,31 @@ public class UserDao {
 		DatabaseDao databaseDao=new DatabaseDao();
 		String sql="update user set password='"+user.getPassword()+"' where userId="+user.getUserId()+"";
 		databaseDao.update(sql);
+	}
+
+	public int hasEmail(User user, DatabaseDao databaseDao) throws SQLException {
+		String sql="select * from user where email='"+user.getEmail()+"'";
+		databaseDao.query(sql);
+		while(databaseDao.next()){
+			return 1;
+		}
+		return 0;
+	}
+
+	public void changeRegisterCode(String register_code) throws Exception {
+		String sql="update user set enable='use' where register_code='"+register_code+"'";
+		DatabaseDao databaseDao = new DatabaseDao();
+		databaseDao.update(sql);
+	}
+
+	public String getPwdByName(String name) throws Exception {
+		String sql="select * from user where name='"+name+"'";
+		DatabaseDao databaseDao = new DatabaseDao();
+		databaseDao.query(sql);
+		databaseDao.next();
+		String pwd=databaseDao.getString("password");
+		return pwd;
+		
 	}
 	
 }

@@ -19,13 +19,17 @@ public class UserService {
 		try {
 			DatabaseDao databaseDao=new DatabaseDao();
 			UserDao UserDao=new UserDao();
-			
-			if(UserDao.hasUser(user, databaseDao)==0){//没有同名用户，可以注册
+			int hasUserName = UserDao.hasUser(user, databaseDao);
+			int hasEmail = UserDao.hasEmail(user, databaseDao);
+			if(hasUserName==0 && hasEmail==0){//没有同名用户，可以注册
 				UserDao.register(user, databaseDao);
 				return 1;	//成功
-			}else{
-				return 0;//失败，用户已存在
+			}else if(hasUserName==1){
+				return 2;//失败，用户已存在
 			}
+			else if(hasEmail==1){
+				return 3;//失败，邮箱已存在
+			}else return 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -149,6 +153,16 @@ public class UserService {
 	public void modifyPwd(User user) throws Exception {
 		UserDao UserDao=new UserDao();
 		UserDao.modifyPwd(user);
+	}
+
+	public void changeRegisterCode(String register_code) throws Exception {
+		UserDao UserDao=new UserDao();
+		UserDao.changeRegisterCode(register_code);
+	}
+
+	public String getPwdByName(String parameter) throws Exception {
+		UserDao UserDao=new UserDao();
+		return UserDao.getPwdByName(parameter);
 	}
 
 }

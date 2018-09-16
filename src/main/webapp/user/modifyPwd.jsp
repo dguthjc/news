@@ -48,23 +48,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		}
 		
-		function checkOldPassword(){
-			var str = document.getElementById("oldPassword").value;
-			var pattern=/^(\w){6,20}$/;
-			
-			if(document.getElementById("oldPassword").value==null || document.getElementById("oldPassword").value==""){
-				document.getElementById("oldPasswordTip").innerHTML="*密码不能为空";
-				document.getElementById("oldPasswordTip").style.color="red";
-				return false;
-			}else if(str!="${user.password}"){
-				document.getElementById("oldPasswordTip").innerHTML="*密码有误";
-				document.getElementById("oldPasswordTip").style.color="red";
-				return false;
-			}else{
-				document.getElementById("oldPasswordTip").innerHTML="";
-				return true;
-			}
-		}
 	
 		function checkConfirmPwd(){
 			var str = document.getElementById("confirmPwd").value;
@@ -85,13 +68,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		function submit1(){
 			var result=false;
-			result=checkNewPassword() && checkOldPassword() && checkConfirmPwd();
+			result=checkNewPassword() && checkConfirmPwd();
 			return result; 
 		}
 		
 		function check(){
 			checkNewPassword();
-			checkOldPassword();
 			checkConfirmPwd();
 			if(submit1()){
 				$("#myform").submit();
@@ -139,11 +121,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<c:if test="${!empty registerInfo}">
 	    		<div style="text-align: center;color: red">${registerInfo}</div>
 	    	</c:if>
-	    	<div class="mainInput">
-		    	<input type="password" class="form-control" id="oldPassword" name="oldPassword"
-		    		placeholder="请输入旧密码" style="width: 60%;margin-left: 20%;" onblur="checkOldPassword();">
-	    	</div>
-	    	<div class="tip" id="oldPasswordTip"></div>
 	    	<div class="mainInput">
 		    	<input type="password" class="form-control" id="newPassword" name="newPassword"
 		    		placeholder="请输入新密码" style="width: 60%;margin-left: 20%;" onblur="checkNewPassword();">

@@ -18,6 +18,7 @@
     	<groupId>javax.servlet.jsp</groupId>
     	<artifactId>jsp-api</artifactId>
     	<version>2.2</version>
+    	<!-- <scope>provided</scope> -->
     </dependency>
     <dependency>
 	    <groupId>javax.servlet</groupId>
@@ -62,7 +63,7 @@
 	    <version>2.4</version>
 	</dependency>
 	<dependency>
-	    <groupId>javax.servlet.jsp.jstl</groupId>
+	    <groupId>javax.servlet</groupId>
 	    <artifactId>jstl</artifactId>
 	    <version>1.2</version>
 	</dependency>
@@ -70,6 +71,23 @@
 	    <groupId>log4j</groupId>
 	    <artifactId>log4j</artifactId>
 	    <version>1.2.14</version>
+	</dependency>
+	<dependency>
+	     <groupId>com.sun.mail</groupId>
+	     <artifactId>javax.mail</artifactId>
+	     <version>1.6.2</version>
+	     <scope>runtime</scope>
+	</dependency>
+	<dependency>
+	    <groupId>commons-codec</groupId>
+	    <artifactId>commons-codec</artifactId>
+	    <version>1.11</version>
+	    <scope>runtime</scope>
+	</dependency>
+	<dependency>
+	    <groupId>com.sun.activation</groupId>
+	    <artifactId>javax.activation</artifactId>
+	    <version>1.2.0</version>
 	</dependency>
   </dependencies>
   <build>

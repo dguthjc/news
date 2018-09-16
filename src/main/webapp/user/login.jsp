@@ -133,7 +133,7 @@ input {
 					<input type="submit" id="submit" value="登录" style="width: 55px; height: 35px; 
 						letter-spacing: 8px;margin-left: 140px;position: relative;" 
 							onclick="checkLogin(),checkLogin(),checkCode()"/>
-					<a href="" 
+					<a href="${pageContext.request.contextPath }/servlet/UserServlet?type1=modifyPwdCheck" 
 						style="font-size: 12px;margin-left: 80px;text-decoration: none" target="_parent">
 						修改密码
 					</a>

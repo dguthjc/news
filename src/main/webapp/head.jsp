@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                <c:if test="${!empty user }">
 		                	<a href="/news/user/userDetails.jsp" style="cursor: pointer;"><span style="color: green">欢迎你，${user.name}</span></a>
 		                	<a href="/news/servlet/UserServlet?type1=exit" target="_parent"><span class="loginPadding">退出</span></a>
-		                	<a href="${pageContext.request.contextPath }/user/modifyPwd.jsp" 
+		                	<a href="${pageContext.request.contextPath }/servlet/UserServlet?type1=modifyPwdCheck" 
 		                		target="_parent"><span class="loginPadding">修改密码</span></a>
 		                </c:if>
 	                	<a href="/news/user/register.jsp" target="_blank"><span class="loginPadding">注册</span></a>
