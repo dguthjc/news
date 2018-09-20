@@ -23,11 +23,12 @@ public class MailUtils {
 		props.setProperty("mail.transport.protocol", "SMTP");
 		props.setProperty("mail.host", "smtp.qq.com");
 		props.setProperty("mail.smtp.auth", "true");// 指定验证为true
+		
 
 		// 创建验证器
 		Authenticator auth = new Authenticator() {
 			public PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("2248005433", "zjmwmjociolvdiif");
+				return new PasswordAuthentication("2248005433", "usxvuibyfktvecdh");
 			}
 		};
 
